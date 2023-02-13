@@ -149,6 +149,25 @@ sap.ui.define([
 				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
 				oViewModel.setProperty("/shareSendEmailMessage",
 				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
+			},
+			
+			EH_fltr : function ()
+			{
+				var lv_cntr = this.getView().byId("id_cntr").getValue();
+				var lv_sal = this.getView().byId("id_sal").getValue();
+				
+				var tblRef = this.getView().byId("id_tbl");
+				
+				var fltr_cntr  = new sap.ui.model.Filter("Country", sap.ui.model.FilterOperator.EQ, lv_cntr);
+				var fltr_sal   = new sap.ui.model.Filter("Salary", sap.ui.model.FilterOperator.GT, lv_sal);
+				
+				var tableBinding = tblRef.getBinding("items");
+				
+				tableBinding.filter([fltr_cntr, fltr_sal]);
+				
+				//sap.m.MessageBox.success("in Event Handler:" + " " + lv_sal + " " + lv_cntr );
+				
+				
 			}
 
 		});

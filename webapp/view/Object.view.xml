@@ -1,6 +1,10 @@
 <mvc:View
 	controllerName="phoenix.zfr_nb_filter_12.controller.Object"
 	xmlns="sap.m"
+	xmlns:core = "sap.ui.core"
+	xmlns:layout = "sap.ui.layout"
+	xmlns:form = "sap.ui.layout.form"
+	xmlns:unified = "sap.ui.unified"
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns:semantic="sap.f.semantic"
 	xmlns:footerbar="sap.ushell.ui.footerbar">
@@ -17,13 +21,51 @@
 		</semantic:titleHeading>
 
 		<semantic:headerContent>
-			<ObjectNumber
-				number="{
-					path: 'Salary',
-					formatter: '.formatter.numberUnit'
-				}"
-				numberUnit="{Country}"
-			/>
+			<Panel  headerText = "Filter Criteria"  expandable = "true"  expanded = "true"  >
+				<form:SimpleForm  layout = "ResponsiveGridLayout"  >
+					<Label  text = "Country"  textDirection = "RTL"  design = "Bold" />
+					<Input  id = "id_cntr"  value = ""  width = "250px"  />
+					
+					<Label  text = "Salary"  textDirection = "RTL"  design = "Bold" />
+					<Input id = "id_sal"  value = ""  width = "250px"  />
+					
+					<Label  text = ""  />
+					<Button  text = "Filter Data"  width = "250px"  press = "EH_fltr"  />
+				</form:SimpleForm>
+			</Panel>
+			
+			<Panel  headerText = "Table"  expandable = "true"  expanded = "true" >
+				<Table  id = "id_tbl"  items = "{/WorkerSet}"  >
+					<columns>
+						<Column>
+							<Label  text = "User Id"  textDirection = "RTL"  design = "Bold" />
+						</Column>
+						
+						<Column>
+							<Label  text = "Name"  textDirection = "RTL"  design = "Bold" />
+						</Column>
+						
+						<Column>
+							<Label  text = "Salary"  textDirection = "RTL"  design = "Bold" />
+						</Column>
+						
+						<Column>
+							<Label  text = "Country"  textDirection = "RTL"  design = "Bold" />
+						</Column>
+					</columns>
+					
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Button  text = "{Userid}"  />
+								<Input  value = "{Firstname} {Lastname}"   />
+								<Text  text = "{Salary}"   />
+								<Text text = "{Country}"    />
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>	
+			</Panel>			
 		</semantic:headerContent>
 
 		<semantic:sendEmailAction>
