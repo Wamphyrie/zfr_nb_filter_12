@@ -167,7 +167,8 @@ sap.ui.define([
 				
 				//sap.m.MessageBox.success("in Event Handler:" + " " + lv_sal + " " + lv_cntr );
 				
-				
+				// tableBinding.filter([fltr_cntr]);
+				// tableBinding.filter([fltr_sal]);
 			}
 
 		});

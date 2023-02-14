@@ -31,40 +31,41 @@
 					
 					<Label  text = ""  />
 					<Button  text = "Filter Data"  width = "250px"  press = "EH_fltr"  />
-				</form:SimpleForm>
-			</Panel>
+
+			<!--</Panel>-->
 			
-			<Panel  headerText = "Table"  expandable = "true"  expanded = "true" >
-				<Table  id = "id_tbl"  items = "{/WorkerSet}"  >
+			<!--<Panel  headerText = "Table"  expandable = "true"  expanded = "true" >-->
+				<Table  id = "id_tbl"  items = "{/WorkerSet}" fixedLayout = "false"  growing = "true" growingThreshold = "10" >
 					<columns>
 						<Column>
-							<Label  text = "User Id"  textDirection = "RTL"  design = "Bold" />
+							<Label  text = "User Id"    design = "Bold" />
 						</Column>
 						
 						<Column>
-							<Label  text = "Name"  textDirection = "RTL"  design = "Bold" />
+							<Label  text = "Name"   design = "Bold" />
 						</Column>
 						
 						<Column>
-							<Label  text = "Salary"  textDirection = "RTL"  design = "Bold" />
+							<Label  text = "Salary"    design = "Bold" />
 						</Column>
 						
 						<Column>
-							<Label  text = "Country"  textDirection = "RTL"  design = "Bold" />
+							<Label  text = "Country"   design = "Bold" />
 						</Column>
 					</columns>
 					
 					<items>
 						<ColumnListItem>
 							<cells>
-								<Button  text = "{Userid}"  />
-								<Input  value = "{Firstname} {Lastname}"   />
+								<Text  text = "{Userid}"  />
+								<Text  value = "{Firstname} {Lastname}"   />
 								<Text  text = "{Salary}"   />
 								<Text text = "{Country}"    />
 							</cells>
 						</ColumnListItem>
 					</items>
 				</Table>	
+				</form:SimpleForm>				
 			</Panel>			
 		</semantic:headerContent>
 
